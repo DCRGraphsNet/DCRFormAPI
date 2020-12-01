@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Analyser">
+      <HintPath>..\FormAPI\Analyser.dll</HintPath>
+    </Reference>
+    <Reference Include="Core">
+      <HintPath>..\FormAPI\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Engine">
+      <HintPath>..\FormAPI\Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="Form">
+      <HintPath>..\FormAPI\Form.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\FormAPI\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FsLexYacc.Runtime">
+      <HintPath>..\FormAPI\FsLexYacc.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Log">
+      <HintPath>..\FormAPI\Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\FormAPI\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Parser">
+      <HintPath>..\FormAPI\Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="Time">
+      <HintPath>..\FormAPI\Time.dll</HintPath>
+    </Reference>
+    <Reference Include="Xml">
+      <HintPath>..\FormAPI\Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+</Project>
