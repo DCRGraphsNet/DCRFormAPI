@@ -11,6 +11,7 @@ namespace FormAPI.Controllers
     public class ExecuteFieldInput
     {
         public int Formid { get; set; }
+        public string IsNull { get; set; }
         
         public string Activityid { get; set; }
         public string Value { get; set; }
@@ -53,7 +54,7 @@ namespace FormAPI.Controllers
         public IActionResult ExecuteField(ExecuteFieldInput input)
         {
             //ExecuteField(formid, activity id, value, user id, role) -> void
-            var success = FormAPI.FormManager.ExecuteField(input.Formid, input.Activityid, input.Value, input.Userid, input.Role);
+            var success = FormAPI.FormManager.ExecuteField(input.Formid, input.Activityid, input.Value, input.Userid, input.Role, input.IsNull);
             if (success != null) { return success; }
             return success;
         }
@@ -77,7 +78,7 @@ namespace FormAPI.Controllers
         public IActionResult ExecuteAndFormFields(ExecuteFieldInput input)
         {
             //ExecuteAndFormFields(formid, activity id, value, user id, role)
-            return FormAPI.FormManager.ExecuteAndFormFields(input.Formid, input.Activityid, input.Value, input.Userid, input.Role);
+            return FormAPI.FormManager.ExecuteAndFormFields(input.Formid, input.Activityid, input.Value, input.Userid, input.Role, input.IsNull);
         }
     }
 }

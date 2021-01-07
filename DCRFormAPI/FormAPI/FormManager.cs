@@ -32,18 +32,29 @@ namespace FormAPI.FormAPI
             return new OkObjectResult(index);
         }
 
-        public static IActionResult ExecuteField(int formid, string activityid, string value, string userid, string role)
+        public static IActionResult ExecuteField(int formid, string activityid, string value, string userid, string role, string isNull)
         {
+            
             var success = ActiveForms.TryGetValue(formid, out Graph graph);
             if (!success) { return new UnprocessableEntityObjectResult(formid + " is not active"); }
-
+                
             try
             {
-                Form.execute(graph, new DCR.Path(activityid), Value.Parse(value), userid, role);
+                var path = new DCR.Path(activityid);
+                Value valueinput;
+                if (isNull == "true")
+                {
+                    valueinput = new Value();
+                }
+                else
+                {
+                    valueinput = graph.ParseToValue(path, value);
+                }
+                Form.execute(graph, path, valueinput, userid, role);
             }
             catch (Exception e)
             {
-                return new BadRequestObjectResult(e.InnerException.Message);
+                return new BadRequestObjectResult(e.Message);
             }
             return new OkResult();
         }
@@ -66,20 +77,31 @@ namespace FormAPI.FormAPI
             return new OkObjectResult(sw.ToString());
         }
 
-        public static IActionResult ExecuteAndFormFields(int formid, string activityid, string value, string userid, string role)
+        public static IActionResult ExecuteAndFormFields(int formid, string activityid, string value, string userid, string role, string isNull)
         {
             var success = ActiveForms.TryGetValue(formid, out Graph graph);
             if (!success) { return new UnprocessableEntityObjectResult(formid + " is not active"); }
 
             try
             {
+                var path = new DCR.Path(activityid);
+                Value valueinput;
+                if (isNull == "true")
+                {
+                    valueinput = new Value();
+                }
+                else
+                {
+                    valueinput = graph.ParseToValue(path, value);
+                }
+
                 StringWriter sw = new StringWriter();
-                Form.executeAndFormFields(graph, new DCR.Path(activityid), Value.Parse(value), userid, role, sw);
+                Form.executeAndFormFields(graph, path, valueinput, userid, role, sw);
                 return new OkObjectResult(sw.ToString());
             }
             catch (Exception e)
             {
-                return new BadRequestObjectResult(e.InnerException.Message);
+                return new BadRequestObjectResult(e.Message);
             }
             
         }
