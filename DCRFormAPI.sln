@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCRFormAPI", "DCRFormAPI.csproj", "{4414D59C-6007-4094-BD4E-CA7CA754A8DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCRFormAPI", "DCRFormAPI\DCRFormAPI.csproj", "{4414D59C-6007-4094-BD4E-CA7CA754A8DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAPITests", "..\FormAPITests\FormAPITests.csproj", "{9BBBB4C8-D574-4500-B208-2E0F11450DD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAPITests", "FormAPITests\FormAPITests.csproj", "{9BBBB4C8-D574-4500-B208-2E0F11450DD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

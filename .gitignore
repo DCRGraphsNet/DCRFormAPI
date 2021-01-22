@@ -68,6 +68,7 @@ artifacts/
 StyleCopReport.xml
 
 # Files built by Visual Studio
+
 *_i.c
 *_p.c
 *_h.h
@@ -87,6 +88,7 @@ StyleCopReport.xml
 *.tlh
 *.tmp
 *.tmp_proj
+*.dll
 *_wpftmp.csproj
 *.log
 *.vspscc

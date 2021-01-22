@@ -30,7 +30,7 @@ namespace FormAPI.FormAPI
             graph.Initialise();
             ActiveForms.Add(index, graph);
             return new OkObjectResult(index);
-        }
+            }
 
         public static IActionResult ExecuteField(int formid, string activityid, string value, string userid, string role, string isNull)
         {
