@@ -34,7 +34,10 @@ namespace FormAPI.FormAPI
 
         public static IActionResult ExecuteField(int formid, string activityid, string value, string userid, string role, string isNull)
         {
-            
+            if (ActiveForms == null)
+            {
+                ActiveForms = new Dictionary<int, Graph>();
+            }
             var success = ActiveForms.TryGetValue(formid, out Graph graph);
             if (!success) { return new UnprocessableEntityObjectResult(formid + " is not active"); }
                 
@@ -61,6 +64,10 @@ namespace FormAPI.FormAPI
 
         public static IActionResult GetFormFields(int formid)
         {
+            if (ActiveForms == null)
+            {
+                ActiveForms = new Dictionary<int, Graph>();
+            }
             var success = ActiveForms.TryGetValue(formid, out Graph graph);
             if (!success) { return new UnprocessableEntityObjectResult(formid + " is not active"); }
             StringWriter sw = new StringWriter();
@@ -70,6 +77,10 @@ namespace FormAPI.FormAPI
 
         public static IActionResult GetForm(int formid)
         {
+            if (ActiveForms == null)
+            {
+                ActiveForms = new Dictionary<int, Graph>();
+            }
             var success = ActiveForms.TryGetValue(formid, out Graph graph);
             if (!success) { return new UnprocessableEntityObjectResult(formid + " is not active"); }
             StringWriter sw = new StringWriter();
@@ -79,6 +90,10 @@ namespace FormAPI.FormAPI
 
         public static IActionResult ExecuteAndFormFields(int formid, string activityid, string value, string userid, string role, string isNull)
         {
+            if (ActiveForms == null)
+            {
+                ActiveForms = new Dictionary<int, Graph>();
+            }
             var success = ActiveForms.TryGetValue(formid, out Graph graph);
             if (!success) { return new UnprocessableEntityObjectResult(formid + " is not active"); }
 
@@ -108,6 +123,10 @@ namespace FormAPI.FormAPI
 
         public static IActionResult Submit(int formid)
         {
+            if (ActiveForms == null)
+            {
+                ActiveForms = new Dictionary<int, Graph>();
+            }
             var success = ActiveForms.TryGetValue(formid, out Graph graph);
             if (!success) { return new UnprocessableEntityObjectResult(formid + " is not active"); }
 
